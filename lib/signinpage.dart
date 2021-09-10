@@ -1,9 +1,11 @@
 import 'dart:ffi';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 import 'package:time_traveller/CustomRaisedButton.dart';
@@ -20,8 +22,11 @@ class sign_inpage extends StatelessWidget {
     @required this.bloc,
   }) : super(key: key);
 
+
+
   static Widget Create(BuildContext context) {
     final auth = Provider.of<Authbase>(context, listen: false);
+
 
     return Provider<SignInblock>(
         create: (_) => SignInblock(auth: auth),
@@ -172,6 +177,7 @@ class sign_inpage extends StatelessWidget {
   }
 
   Widget buildcontent(BuildContext context, bool isloading) {
+
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.all(20),
@@ -228,7 +234,8 @@ class sign_inpage extends StatelessWidget {
                   ),
                 ),
                 color: Colors.teal[700],
-                onpressed: () => SignInWithEmail(context)),
+                onpressed: () {}),
+
             SizedBox(
               height: 10,
             ),

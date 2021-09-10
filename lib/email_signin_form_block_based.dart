@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -127,10 +126,7 @@ class _Emailsign_formBloc_basedState extends State<Emailsign_formBloc_based> {
         ),
         onPressed: _submitenabled ? submit : null,
       ),
-      FlatButton(
-        child: Text(secondarytext),
-        onPressed:  ? toggleform : null,
-      ),
+
     ];
   }
 

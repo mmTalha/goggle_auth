@@ -143,10 +143,8 @@ class _Email_Signinform_statefulState extends State<Email_Signinform_stateful> {
 
   @override
   Widget build(BuildContext context) {
-    return  StreamBuilder<Emailsigininmodel >(
-      stream:widget. ,
-      builder: (context, snapshot) {
-        return Padding(
+    return
+         Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -155,7 +153,7 @@ class _Email_Signinform_statefulState extends State<Email_Signinform_stateful> {
             ),
           );
       }
-    );
+
 
   }
-}
+

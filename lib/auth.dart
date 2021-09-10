@@ -15,13 +15,14 @@ abstract class Authbase {
 
   Future<Void> signOut();
 
-  Future<User> signInWithGoogle();
+  // Future<User> signInWithGoogle();
 
   Future<User> Creatuserwithemailpassword(String email, String password);
 
   Future<User> signInwithemail(String email, String password);
 
   Future<User> signInWithFacebook();
+  Future<User>   signInWithGoogle();
 }
 
 @override
@@ -53,25 +54,29 @@ class Auth implements Authbase {
   @override
   // ignore: missing_return
   Future<User> signInWithGoogle() async {
-    final googlesSignIn = GoogleSignIn();
-    final goggleuser = await googlesSignIn.signIn();
-    if (goggleuser != null) {
-      final googleauth = await goggleuser.authentication;
-      if (googleauth.idToken != null) {
-        final userCredential = await _firebaseauth
-            .signInWithCredential(GoogleAuthProvider.credential(
-          accessToken: googleauth.idToken,
-          idToken: googleauth.accessToken,
-        ));
-        return userCredential.user;
-      } else {
-        throw FirebaseAuthException(
-            message: 'Error abborted by user ',
-            code: 'Signin abborted By user');
-      }
-    }
+    try {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+      final googleSignIn = GoogleSignIn();
+      final guser = await googleSignIn.signIn();
 
-    // Once signed in, return the UserCredential
+      final googleAuth = await guser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      UserCredential result = await _auth.signInWithCredential(credential);
+      User user = result.user;
+      print( user);
+      //add database
+
+
+      return  user;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 
   @override

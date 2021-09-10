@@ -9,7 +9,7 @@ class CustomRaisedButton extends StatelessWidget {
 
 
 
-  const CustomRaisedButton({Key key, this.color, this.borderRadious:10.0,  this.onpressed, this.child}) : super(key: key);
+  const CustomRaisedButton(   {Key key, this.color, this.borderRadious:10.0,  this.onpressed, this.child}) : super(key: key);
   @override
   Widget build(BuildContext context) {
    return  SizedBox(

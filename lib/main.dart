@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
  import 'package:time_traveller/auth.dart';
 import 'package:time_traveller/landingpage.dart';
-import 'package:time_traveller/signinpage.dart';
 
-  Future <Void> main() async{
+  Future   main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());

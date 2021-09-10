@@ -33,7 +33,7 @@ class UserhomePage extends StatelessWidget {
       ],
     );
   }
-
+var user =  FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +42,14 @@ class UserhomePage extends StatelessWidget {
         actions: [
           FlatButton(
             child: Text(
-              'Logout',
+             user. email ,
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onPressed:()=> signOut(context ),
           )
         ],
       ),
+      body: Image.network( user.photoURL),
     );
   }
 }
